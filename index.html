@@ -27,13 +27,28 @@
     </div>
   
     <!-- Navigation Links -->
-    <nav class="nav-links" id="nav-links">
-        <a href="#">Upload Records</a>
-        <a href="#">My Records</a>
-        <a href="#">Emergency</a>
-        <a href="#">Access control</a>
-      <button class="wallet-btn">Connect Wallet</button>
-    </nav>
+<!-- Connect Wallet in Nav -->
+<nav class="nav-links" id="nav-links">
+  <a href="#">Upload Records</a>
+  <a href="#">My Records</a>
+  <a href="#">Emergency</a>
+  <a href="#">Access Control</a>
+  <button class="wallet-btn" onclick="connectWallet()">Connect Wallet</button>
+</nav>
+
+<!-- Display Connected Address -->
+<p><strong>Connected as:</strong> <span id="walletAddress">Not connected</span></p>
+
+<!-- Upload Section -->
+<h3>Upload Record</h3>
+<input id="recordCID" placeholder="Enter IPFS CID" />
+<button onclick="uploadRecord()">Upload</button>
+
+<!-- Read Records Section -->
+<h3>Read My Records</h3>
+<button onclick="readMyRecords()">Read</button>
+<div id="recordOutput"></div>
+
   </header>
 
 <!-- Hero Section -->
@@ -148,18 +163,6 @@
 
 
   <!-- test zone for the uploads -->
-
-  <button onclick="connectWallet()">Connect Wallet</button>
-
-<h3>Upload Record</h3>
-<input id="patientAddress" placeholder="Patient Address" />
-<input id="recordCID" placeholder="IPFS CID" />
-<button onclick="uploadRecord()">Upload</button>
-
-<h3>Read Records</h3>
-<input id="readPatient" placeholder="Patient Address" />
-<button onclick="readRecords()">Read</button>
-<div id="recordOutput"></div>
 
   <!-- Footer -->
   <footer>
