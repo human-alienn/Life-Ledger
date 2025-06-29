@@ -82,6 +82,13 @@ header {
   color: #2596be;
 }
 
+#walletAddress {
+  color: #2596be;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+
 /* Mobile Navigation */
 @media screen and (max-width: 768px) {
   .menu-toggle {
