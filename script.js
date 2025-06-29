@@ -9,6 +9,9 @@ if (chatbotIcon) {
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
+
+const addr = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+
 if (menuToggle) {
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");

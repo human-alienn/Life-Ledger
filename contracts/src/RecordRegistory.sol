@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-contract RecordRegistry {
+contract RecordRegistory {
     event RecordStored(address indexed patient, address indexed uploader, string cid); //events
 
     // Store a list of CIDs for a patient
