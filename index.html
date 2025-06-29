@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LifeLedger - Decentralized Health Records</title>
   <link rel="stylesheet" href="style.css" />
-  
   <script defer src="script.js"></script>
-<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
@@ -16,37 +13,26 @@
 <body>
 
 <header>
-  <div class="header-left">
-    <img src="logo.png" alt="LifeLedger Logo" class="logo" />
-    <h1 class="brand">LifeLedger</h1>
-  </div>
-
-<nav class="nav-links" id="nav-links">
-  <a href="#">Upload Records</a>
-  <a href="#">My Records</a>
-  <a href="#">Emergency</a>
-  <a href="#">Access Control</a>
-  <button class="wallet-btn" onclick="connectWallet()">Connect Wallet</button>
-</nav>
-
-<!-- Connected Wallet -->
-<div class="wallet-display">
-  <strong>Connected as:</strong> <span id="walletAddress">Not connected</span>
-</div>
-
-<!-- Upload and Read Section -->
-<section class="record-section">
-  <h3>Upload Record</h3>
-  <input id="recordCID" placeholder="Enter CID" />
-  <button onclick="uploadRecord()">Upload</button>
-
-  <h3 style="margin-top: 1.5rem;">View My Records</h3>
-  <button onclick="readMyRecords()">Read</button>
-  <div id="recordOutput"></div>
-</section>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-</header>
+    <div class="header-left">
+      <img src="logo.png" alt="LifeLedger Logo" class="logo" />
+      <h1 class="brand">LifeLedger</h1>
+    </div>
   
+    <!-- Hamburger Icon -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  
+    <!-- Navigation Links -->
+    <nav class="nav-links" id="nav-links">
+        <a href="#">Upload Records</a>
+        <a href="#">My Records</a>
+        <a href="#">Emergency</a>
+        <a href="#">Access control</a>
+      <button class="wallet-btn">Connect Wallet</button>
+    </nav>
+  </header>
+
 <!-- Hero Section -->
 <main class="hero">
     <div class="hero-text">
@@ -157,10 +143,7 @@
   <!-- Chatbot -->
   <div id="chatbot-icon" title="Chat with a doctor">💬</div>
 
-
-  <!-- test zone for the uploads -->
-
-  <!-- Footer -->
+  <!-- Footer -->1
   <footer>
     <div class="footer-content">
       <p>Contact: support@lifeledger.health</p>
