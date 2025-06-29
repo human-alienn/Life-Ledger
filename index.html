@@ -146,7 +146,22 @@
   <!-- Chatbot -->
   <div id="chatbot-icon" title="Chat with a doctor">💬</div>
 
-  <!-- Footer -->1
+
+  <!-- test zone for the uploads -->
+
+  <button onclick="connectWallet()">Connect Wallet</button>
+
+<h3>Upload Record</h3>
+<input id="patientAddress" placeholder="Patient Address" />
+<input id="recordCID" placeholder="IPFS CID" />
+<button onclick="uploadRecord()">Upload</button>
+
+<h3>Read Records</h3>
+<input id="readPatient" placeholder="Patient Address" />
+<button onclick="readRecords()">Read</button>
+<div id="recordOutput"></div>
+
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <p>Contact: support@lifeledger.health</p>
