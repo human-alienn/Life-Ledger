@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LifeLedger - Decentralized Health Records</title>
   <link rel="stylesheet" href="style.css" />
+  
   <script defer src="script.js"></script>
+  <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
@@ -29,7 +32,7 @@
         <a href="#">My Records</a>
         <a href="#">Emergency</a>
         <a href="#">Access control</a>
-      <button class="wallet-btn">Connect Wallet</button>
+      <button onclick="connectWallet()" class="wallet-btn">Connect Wallet</button>
     </nav>
   </header>
 
