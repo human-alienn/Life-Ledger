@@ -12,7 +12,7 @@
   }
   
   /* HEADER */
- /* Header Container */
+/* HEADER CONTAINER */
 header {
   display: flex;
   justify-content: space-between;
@@ -21,9 +21,11 @@ header {
   background: #ffffff;
   border-bottom: 1px solid #eee;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  position: relative;
+  z-index: 100;
 }
 
-/* Logo and Brand */
+/* BRANDING */
 .header-left {
   display: flex;
   align-items: center;
@@ -40,17 +42,17 @@ header {
   color: #2596be;
 }
 
-/* Navigation Links */
+/* NAV LINKS (Desktop) */
 .nav-links {
   display: flex;
-  gap: 1.2rem;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .nav-links a {
-  text-decoration: none;
   color: #444;
   font-weight: 500;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
@@ -58,7 +60,7 @@ header {
   color: #2596be;
 }
 
-/* Connect Wallet Button */
+/* CONNECT WALLET BUTTON */
 .wallet-btn {
   background: #2596be;
   color: white;
@@ -75,8 +77,17 @@ header {
   background: #007aa8;
 }
 
+/* TOGGLE MENU ICON (MOBILE) */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #2596be;
+}
+
+/* WALLET DISPLAY */
 .wallet-display {
-  margin: 0.5rem 2rem;
+  margin: 1rem 2rem 0.5rem;
   font-size: 0.95rem;
   color: #444;
 }
@@ -87,19 +98,39 @@ header {
   font-weight: bold;
 }
 
-
-  /* Toggle Menu */
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #2596be;
+.record-section {
+  margin: 2rem;
 }
 
-#walletAddress {
-  color: #2596be;
+.record-section input {
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.record-section button {
+  padding: 0.6rem 1.2rem;
+  margin: 0.3rem 0;
+  background: #2596be;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
   font-weight: bold;
+}
+
+.record-section button:hover {
+  background: #007aa8;
+}
+
+#recordOutput {
+  margin-top: 1rem;
+  background: #f0f8ff;
+  padding: 1rem;
+  border-left: 3px solid #2596be;
   font-family: monospace;
+  white-space: pre-wrap;
 }
 
 
@@ -112,32 +143,38 @@ header {
   .nav-links {
     display: none;
     flex-direction: column;
-    background: #ffffff;
-    width: 100%;
+    align-items: flex-start;
     position: absolute;
-    top: 75px;
+    top: 100%;
     left: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    z-index: 999;
+    width: 100%;
+    background: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   }
 
   .nav-links.active {
     display: flex;
   }
 
-  .nav-links a {
-    padding: 0.5rem 0;
+  .nav-links a,
+  .wallet-btn {
+    width: 100%;
+    padding: 0.75rem 0;
+    text-align: left;
     font-size: 1rem;
-    color: #2596be;
+    text-decoration: none;
   }
 
   .wallet-btn {
-    width: 100%;
-    margin-top: 1rem;
-    padding: 0.6rem;
+    margin-top: 0.5rem;
+  }
+
+  .wallet-display {
+    margin: 1rem 2rem;
   }
 }
+
 
   
   /* HERO SECTION */
@@ -262,7 +299,7 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
   
-  /* Responsive */
+  /* Responsive 
   @media screen and (max-width: 768px) {
     .blog-wrapper {
       flex-direction: column;
@@ -285,7 +322,7 @@ header {
     .blog-list .see-more-btn {
       align-self: center;
     }
-  }
+  }*/
   
   
   /* CHATBOT */
@@ -453,7 +490,7 @@ header {
     }
   }
 
-  /* ========= RESPONSIVE DESIGN ========= */
+  /* ========= RESPONSIVE DESIGN ========= 
 @media screen and (max-width: 768px) {
   header {
     flex-direction: column;
@@ -485,7 +522,7 @@ header {
     margin: 0.5rem 1rem;
     font-size: 0.9rem;
   }
-}
+}*/
 
 
   
