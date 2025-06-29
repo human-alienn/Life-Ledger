@@ -16,40 +16,38 @@
 <body>
 
 <header>
-    <div class="header-left">
-      <img src="logo.png" alt="LifeLedger Logo" class="logo" />
-      <h1 class="brand">LifeLedger</h1>
-    </div>
-  
-    <!-- Hamburger Icon -->
-    <div class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </div>
-  
-    <!-- Navigation Links -->
-<!-- Connect Wallet in Nav -->
-<nav class="nav-links" id="nav-links">
-  <a href="#">Upload Records</a>
-  <a href="#">My Records</a>
-  <a href="#">Emergency</a>
-  <a href="#">Access Control</a>
-  <button class="wallet-btn" onclick="connectWallet()">Connect Wallet</button>
-</nav>
+  <div class="header-left">
+    <img src="logo.png" alt="LifeLedger Logo" class="logo" />
+    <h1 class="brand">LifeLedger</h1>
+  </div>
 
-<!-- Display Connected Address -->
-<p><strong>Connected as:</strong> <span id="walletAddress">Not connected</span></p>
+  <nav class="nav-links" id="nav-links">
+    <a href="#">Upload Records</a>
+    <a href="#">My Records</a>
+    <a href="#">Emergency</a>
+    <a href="#">Access Control</a>
+    <button class="wallet-btn" onclick="connectWallet()">Connect Wallet</button>
+  </nav>
+</header>
 
-<!-- Upload Section -->
-<h3>Upload Record</h3>
-<input id="recordCID" placeholder="Enter IPFS CID" />
-<button onclick="uploadRecord()">Upload</button>
+<!-- Connected Wallet Address -->
+<div class="wallet-display">
+  <strong>Connected as:</strong> <span id="walletAddress">Not connected</span>
+</div>
 
-<!-- Read Records Section -->
-<h3>Read My Records</h3>
-<button onclick="readMyRecords()">Read</button>
-<div id="recordOutput"></div>
+<!-- Upload Record -->
+<section class="record-section">
+  <h3>Upload Record</h3>
+  <input id="recordCID" placeholder="Enter IPFS CID" />
+  <button onclick="uploadRecord()">Upload</button>
+</section>
 
-  </header>
+<!-- Read Records -->
+<section class="record-section">
+  <h3>Read My Records</h3>
+  <button onclick="readMyRecords()">Read</button>
+  <div id="recordOutput"></div>
+</section>
 
 <!-- Hero Section -->
 <main class="hero">
