@@ -5,10 +5,9 @@ if (chatbotIcon) {
   });
 }
 
-// mobile nav
+// Toggle mobile nav
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
-
 
 const addr = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 
@@ -18,14 +17,10 @@ if (menuToggle) {
   });
 }
 
-function toggleMenu() {
-  document.getElementById("nav-links").classList.toggle("active");
-}
-
 
 // ether script - don't touch
 
-const contractABI = [
+const recordRegistryABI = [
   {
     "inputs": [
       { "internalType": "address", "name": "patient", "type": "address" },
@@ -46,76 +41,74 @@ const contractABI = [
     ],
     "stateMutability": "view",
     "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "patient", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "uploader", "type": "address" },
+      { "indexed": false, "internalType": "string", "name": "cid", "type": "string" }
+    ],
+    "name": "RecordStored",
+    "type": "event"
   }
 ];
 
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // your deployed contract on Anvil
+// Set the Anvil address of your deployed contract
+const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545");
 
-let provider, signer, contract;
+let signer;
+let recordContract;
 
-// ====== Wallet Connection ======
 async function connectWallet() {
   try {
-    if (!window.ethereum) {
-      alert("MetaMask not detected.");
-      return;
-    }
-
     await window.ethereum.request({ method: "eth_requestAccounts" });
-
-    provider = new ethers.providers.Web3Provider(window.ethereum);
-    signer = provider.getSigner();
-
-    contract = new ethers.Contract(contractAddress, contractABI, signer);
-
-    const userAddress = await signer.getAddress();
-    document.getElementById("walletAddress").innerText = userAddress;
-
-    alert("Wallet connected successfully!");
+    const metamaskProvider = new ethers.providers.Web3Provider(window.ethereum);
+    signer = metamaskProvider.getSigner();
+    recordContract = new ethers.Contract(contractAddress, recordRegistryABI, signer);
+    alert("Wallet connected!");
   } catch (error) {
-    console.error("Wallet connection error:", error);
-    alert("Failed to connect wallet.");
+    console.error("Wallet connection failed:", error);
+    alert("Failed to connect wallet");
   }
 }
 
-// ====== Upload Record ======
+// Upload record (CID) for a patient
 async function uploadRecord() {
-  if (!contract) {
-    alert("Wallet not connected.");
+  const patient = document.getElementById("patientAddress").value;
+  const cid = document.getElementById("recordCID").value;
+
+  if (!patient || !cid) {
+    alert("Please enter both patient address and CID.");
     return;
   }
 
-  const cid = document.getElementById("recordCID").value;
-  if (!cid) return alert("Please enter a CID.");
-
   try {
-    const userAddress = await signer.getAddress();
-    const tx = await contract.storeRecord(userAddress, cid);
+    const tx = await recordContract.storeRecord(patient, cid);
     await tx.wait();
-    alert("Record uploaded!");
-  } catch (err) {
-    console.error("Upload error:", err);
-    alert("Failed to upload record.");
+    alert("Record uploaded successfully!");
+  } catch (error) {
+    console.error("Upload failed:", error);
+    alert("Transaction failed. Check console.");
   }
 }
 
-// ====== Read Records ======
-async function readMyRecords() {
-  if (!contract) {
-    alert("Wallet not connected.");
+// Read records for a patient
+async function readRecords() {
+  const patient = document.getElementById("readPatient").value;
+
+  if (!patient) {
+    alert("Please enter a patient address.");
     return;
   }
 
   try {
-    const userAddress = await signer.getAddress();
-    const records = await contract.getRecords(userAddress);
-
+    const records = await recordContract.getRecords(patient);
     const output = document.getElementById("recordOutput");
-    output.innerHTML = records.length
-      ? records.map(cid => `🔗 ${cid}`).join("<br>")
-      : "No records found.";
-  } catch (err) {
-    console.error("Read error:", err);
+    output.innerHTML = "<strong>Records:</strong><br>" + records.map(cid => `<code>${cid}</code>`).join("<br>");
+  } catch (error) {
+    console.error("Read failed:", error);
     alert("Failed to fetch records.");
   }
 }
