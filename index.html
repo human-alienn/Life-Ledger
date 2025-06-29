@@ -21,18 +21,30 @@
     <h1 class="brand">LifeLedger</h1>
   </div>
 
-  <nav class="nav-links" id="nav-links">
-    <a href="#">Upload Records</a>
-    <a href="#">My Records</a>
-    <a href="#">Emergency</a>
-    <a href="#">Access Control</a>
-   <button onclick="connectWallet()">Connect Wallet</button>
-<input id="recordCID" placeholder="Enter CID" />
-<button onclick="uploadRecord()">Upload</button>
-<button onclick="readMyRecords()">Read</button>
-<div id="recordOutput"></div>
+<nav class="nav-links" id="nav-links">
+  <a href="#">Upload Records</a>
+  <a href="#">My Records</a>
+  <a href="#">Emergency</a>
+  <a href="#">Access Control</a>
+  <button class="wallet-btn" onclick="connectWallet()">Connect Wallet</button>
+</nav>
 
-  </nav>
+<!-- Connected Wallet -->
+<div class="wallet-display">
+  <strong>Connected as:</strong> <span id="walletAddress">Not connected</span>
+</div>
+
+<!-- Upload and Read Section -->
+<section class="record-section">
+  <h3>Upload Record</h3>
+  <input id="recordCID" placeholder="Enter CID" />
+  <button onclick="uploadRecord()">Upload</button>
+
+  <h3 style="margin-top: 1.5rem;">View My Records</h3>
+  <button onclick="readMyRecords()">Read</button>
+  <div id="recordOutput"></div>
+</section>
+
 </header>
   
 <!-- Hero Section -->
