@@ -18,6 +18,10 @@ if (menuToggle) {
   });
 }
 
+function toggleMenu() {
+  document.getElementById("nav-links").classList.toggle("active");
+}
+
 
 // ether script - don't touch
 
